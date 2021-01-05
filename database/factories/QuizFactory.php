@@ -22,7 +22,9 @@ class QuizFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => rand(1, 50),
+            'title' => implode(' ', $this->faker->words(2)),
+            'subtitle' => $this->faker->text()
         ];
     }
 }

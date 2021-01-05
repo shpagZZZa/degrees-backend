@@ -9,34 +9,37 @@ class Feedback extends Model
 {
     use HasFactory;
 
+    public function answer()
+    {
+        return $this->belongsTo(Answer::class);
+    }
+
+    public function quiz()
+    {
+        return $this->belongsTo(Quiz::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
     protected $fillable = [
         'mark', 'comment', 'employee_id'
     ];
 
-    /**
-     * @param int $mark
-     * @return $this
-     */
     public function setMark(int $mark): self
     {
         $this->mark = $mark;
         return $this;
     }
 
-    /**
-     * @param string $comment
-     * @return $this
-     */
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
         return $this;
     }
 
-    /**
-     * @param int $id
-     * @return $this
-     */
     public function setEmployeeId(int $id): self
     {
         $this->employee_id = $id;

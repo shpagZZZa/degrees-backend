@@ -22,7 +22,7 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => implode(' ', $this->faker->words(2))
         ];
     }
 }

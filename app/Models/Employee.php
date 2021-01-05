@@ -13,6 +13,16 @@ class Employee extends Model
         'full_name', 'position_id', 'access_code'
     ];
 
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     public function setFullName(string $fullName): self
     {
         $this->full_name = $fullName;

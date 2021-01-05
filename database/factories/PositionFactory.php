@@ -22,7 +22,8 @@ class PositionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->word(),
+            'company_id' => 1
         ];
     }
 }

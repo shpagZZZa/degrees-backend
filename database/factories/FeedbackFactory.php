@@ -22,7 +22,10 @@ class FeedbackFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'answer_id' => rand(1, 10),
+            'comment' => $this->faker->text(30),
+            'quiz_id' => rand(1, 10),
+            'employee_id' => rand(1, 50)
         ];
     }
 }

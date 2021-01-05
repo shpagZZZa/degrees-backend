@@ -22,7 +22,10 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'full_name' => $this->faker->firstName(),
+            'access_code' => rand(11111, 99999),
+            'position_id' => rand(1, 20),
+            'group_id' => rand(1, 5)
         ];
     }
 }
