@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feedback;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
-class FeedbackController extends Controller
+class PositionController extends Controller
 {
     public function store(Request $request)
     {

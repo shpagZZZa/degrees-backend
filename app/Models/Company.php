@@ -5,31 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quiz extends Model
+class Company extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title', 'subtitle'
+        'title'
     ];
 
-    /**
-     * @param string $title
-     * @return $this
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
         return $this;
     }
 
-    /**
-     * @param string $subTitle
-     * @return $this
-     */
-    public function setSubTitle(string $subTitle): self
+    public function getTitle(): string
     {
-        $this->subTitle = $subTitle;
-        return $this;
+        return $this->title;
     }
 }
