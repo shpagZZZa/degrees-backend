@@ -23,6 +23,17 @@ class Employee extends Model
         return $this->belongsTo(Group::class);
     }
 
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class, 'employee_id');
+    }
+
+    public function setGroupId(int $id): self
+    {
+        $this->group_id = $id;
+        return $this;
+    }
+
     public function setFullName(string $fullName): self
     {
         $this->full_name = $fullName;
@@ -31,12 +42,13 @@ class Employee extends Model
 
     public function setAccessCode(string $accessCode): self
     {
-        $this->accessCode = $accessCode;
+        $this->access_code = $accessCode;
         return $this;
     }
 
     public function setPositionId(int $positionId): self
     {
         $this->position_id = $positionId;
+        return $this;
     }
 }

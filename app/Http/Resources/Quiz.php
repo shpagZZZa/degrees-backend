@@ -17,7 +17,7 @@ class Quiz extends JsonResource
         return [
             'id' => $this->id,
             'feedbacks' => new FeedbackCollection($this->feedbacks),
-            'employee' => $this->employee,
+            'employee' => new Employee($this->employee),
             'answers' => new AnswerCollection($this->answers),
             'title' => $this->title,
             'subtitle' => $this->subtitle,

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Service\AnswerService;
+use App\Service\AuthService;
 use App\Service\CompanyService;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(CompanyService::class, function ($app) {
             return new CompanyService();
+        });
+        $this->app->bind(AuthService::class, function ($app) {
+            return new AuthService();
+        });
+        $this->app->bind(AnswerService::class, function ($app) {
+            return new AnswerService();
         });
     }
 

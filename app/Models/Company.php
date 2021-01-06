@@ -14,6 +14,11 @@ class Company extends Model
         return $this->hasMany(Group::class);
     }
 
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
+
     protected $fillable = [
         'title'
     ];

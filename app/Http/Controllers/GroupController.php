@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GroupCollection;
 use App\Http\Resources\GroupExtended as GroupExtendedResource;
 use App\Models\Group;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class GroupController extends Controller
 {
     public function listAction(): Response
     {
-        return response(Group::all()->toJson(), Response::HTTP_OK);
+        return response(new GroupCollection(Group::all()), Response::HTTP_OK);
     }
 
     public function getAction(int $id): Response

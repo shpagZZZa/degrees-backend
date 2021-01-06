@@ -15,4 +15,10 @@ class Answer extends Model
     }
 
     protected $fillable = ['title'];
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+        return $this;
+    }
 }

@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $answers = Answer::all();
 
         foreach (Quiz::all() as $quiz) {
-            $quiz->answers()->attach($answers->random());
+            $quiz->answers()->attach($answers->random(4));
         }
     }
 }

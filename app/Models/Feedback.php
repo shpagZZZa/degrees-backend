@@ -4,33 +4,40 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Feedback extends Model
 {
     use HasFactory;
 
-    public function answer()
+    public function answer(): BelongsTo
     {
         return $this->belongsTo(Answer::class);
     }
 
-    public function quiz()
+    public function quiz(): BelongsTo
     {
         return $this->belongsTo(Quiz::class);
     }
 
-    public function author()
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class, 'employee_id');
     }
 
     protected $fillable = [
-        'mark', 'comment', 'employee_id'
+        'answer_id', 'comment', 'employee_id', 'quiz_id'
     ];
 
-    public function setMark(int $mark): self
+    public function setQuizId(int $id): self
     {
-        $this->mark = $mark;
+        $this->quiz_id = $id;
+        return $this;
+    }
+
+    public function setAnswerId(int $mark): self
+    {
+        $this->answer_id = $mark;
         return $this;
     }
 

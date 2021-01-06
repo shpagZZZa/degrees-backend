@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Company as CompanyResource;
+use App\Http\Resources\QuizCollection;
 use App\Models\Company;
+use App\Models\Employee;
+use App\Models\Quiz;
 use App\Service\CompanyService;
 use CompanyRepository;
 use Illuminate\Http\Request;
@@ -39,5 +42,23 @@ class CompanyController extends Controller
     public function listAction(): Response
     {
         return response(Company::all()->toJson(), Response::HTTP_OK);
+    }
+
+    public function getQuizzesAction(int $id): Response
+    {
+        $company = Company::find($id);
+        $allQuizzes = Quiz::all();
+        $quizzes = [];
+
+        foreach ($company->groups as $group) {
+            /** @var Employee $employee */
+            foreach ($group->employees as $employee) {
+                foreach ($employee->quizzes as $quiz) {
+                    $quizzes[] = $quiz;
+                }
+            }
+        }
+
+        return response(new QuizCollection($quizzes), 200);
     }
 }

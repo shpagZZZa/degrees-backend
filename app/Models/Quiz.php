@@ -40,9 +40,9 @@ class Quiz extends Model
         return $this;
     }
 
-    public function setUserId(int $userId): self
+    public function setEmployeeId(int $employeeId): self
     {
-        $this->user_id = $userId;
+        $this->employee_id = $employeeId;
         return $this;
     }
 }
