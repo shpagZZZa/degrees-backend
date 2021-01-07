@@ -33,9 +33,12 @@ Route::get('/company/{id}/quizzes', [CompanyController::class, 'getQuizzesAction
 Route::get('/company/list', [CompanyController::class, 'listAction']);
 
 Route::get('/position/list', [PositionController::class, 'listAction']);
+Route::post('/position', [PositionController::class, 'storeAction']);
 
 Route::get('/group/list', [GroupController::class, 'listAction']);
 Route::get('/group/{id}', [GroupController::class, 'getAction'])->whereNumber('id');;
+Route::put('/group/{id}', [GroupController::class, 'setHeadAction'])->whereNumber('id');;
+Route::post('/group', [GroupController::class, 'storeAction']);
 
 Route::get('/quiz/{id}', [QuizController::class, 'getAction'])->whereNumber('id');
 Route::post('/quiz/{id}', [FeedbackController::class, 'storeAction'])->whereNumber('id');
@@ -46,6 +49,8 @@ Route::get('/quiz/{id}/check-answered', [FeedbackController::class, 'checkAnswer
 Route::post('/employee', [EmployeeController::class, 'storeAction']);
 Route::get('/employee/list', [EmployeeController::class, 'listAction']);
 Route::get('/employee/{id}', [EmployeeController::class, 'getAction'])->whereNumber('id');
+Route::put('/employee/{id}', [EmployeeController::class, 'setAdminAction'])->whereNumber('id');
 Route::get('/employee/{id}/quizzes', [EmployeeController::class, 'getQuizzesAction'])->whereNumber('id');
 
 Route::post('/auth/get-user', [AuthController::class, 'getUserAction']);
+Route::post('/auth/login', [AuthController::class, 'loginAction']);

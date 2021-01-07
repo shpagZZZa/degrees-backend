@@ -26,12 +26,19 @@ class EmployeeController extends Controller
 
         $employee->save();
 
-        return \response(new EmployeeResource($employee), 201);
+        return responseAlias(new EmployeeResource($employee), 201);
+    }
+
+    public function setAdminAction(int $id): Response
+    {
+        $employee = Employee::find($id)->setAdmin();
+        $employee->save();
+        return responseAlias(new EmployeeResource($employee), 200);
     }
 
     public function getQuizzesAction(int $id): Response
     {
-        return \response(new QuizCollection(Employee::find($id)->quizzes), 200);
+        return responseAlias(new QuizCollection(Employee::find($id)->quizzes), 200);
     }
 
     public function getAction(int $id): Response
@@ -45,6 +52,6 @@ class EmployeeController extends Controller
 
     public function listAction(): Response
     {
-        return \response(new EmployeeCollection(Employee::all()), 200);
+        return responseAlias(new EmployeeCollection(Employee::all()), 200);
     }
 }

@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('access_code');
             $table->bigInteger('position_id');
             $table->bigInteger('group_id');
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }

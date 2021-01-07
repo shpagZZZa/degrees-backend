@@ -21,11 +21,13 @@ class EmployeeFactory extends Factory
      */
     public function definition()
     {
+        $boolArray = [true, false, false, false, false, false];
         return [
             'full_name' => $this->faker->firstName(),
             'access_code' => rand(11111, 99999),
             'position_id' => rand(1, 20),
-            'group_id' => rand(1, 5)
+            'group_id' => rand(1, 5),
+            'is_admin' => $boolArray[rand(0, count($boolArray) - 1)]
         ];
     }
 }

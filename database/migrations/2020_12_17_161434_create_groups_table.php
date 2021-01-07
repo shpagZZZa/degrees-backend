@@ -16,7 +16,7 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->bigInteger('head_id');
+            $table->bigInteger('head_id')->nullable();
             $table->bigInteger('company_id');
             $table->timestamps();
         });

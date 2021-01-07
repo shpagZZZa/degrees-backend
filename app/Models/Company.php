@@ -14,6 +14,11 @@ class Company extends Model
         return $this->hasMany(Group::class);
     }
 
+    public function positions()
+    {
+        return $this->hasMany(Position::class);
+    }
+
     public function quizzes()
     {
         return $this->hasMany(Quiz::class);

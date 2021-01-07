@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GroupCollection extends ResourceCollection
 {
-    public function __construct($resource, string $collects)
+    public function __construct($resource, string $collects = Group::class)
     {
         $this->collects = $collects;
         parent::__construct($resource);

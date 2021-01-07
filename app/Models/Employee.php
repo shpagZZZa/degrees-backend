@@ -34,6 +34,12 @@ class Employee extends Model
         return $this;
     }
 
+    public function setAdmin(): self
+    {
+        $this->is_admin = $this->is_admin === 1 ? 0 : 1;
+        return $this;
+    }
+
     public function setFullName(string $fullName): self
     {
         $this->full_name = $fullName;
@@ -50,5 +56,10 @@ class Employee extends Model
     {
         $this->position_id = $positionId;
         return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
     }
 }

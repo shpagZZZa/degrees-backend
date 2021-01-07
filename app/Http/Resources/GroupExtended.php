@@ -18,7 +18,7 @@ class GroupExtended extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'head' => new Employee($this->headEmployee),
+            'head' => new Employee(\App\Models\Employee::find($this->head_id)),
             'employees' => new EmployeeCollection($this->employees)
         ];
     }

@@ -8,7 +8,7 @@ use App\Models\Employee;
 
 class AuthService
 {
-    public function getUser(int $accessCode): Employee
+    public function getUser(int $accessCode): ?Employee
     {
         return Employee::where('access_code', $accessCode)->first();
     }

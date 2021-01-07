@@ -10,8 +10,14 @@ class Position extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title'
+        'title', 'company_id'
     ];
+
+    public function setCompanyId(int $id): self
+    {
+        $this->company_id = $id;
+        return $this;
+    }
 
     public function setTitle(string $title): self
     {

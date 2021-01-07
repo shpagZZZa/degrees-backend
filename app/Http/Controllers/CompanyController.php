@@ -8,7 +8,6 @@ use App\Models\Company;
 use App\Models\Employee;
 use App\Models\Quiz;
 use App\Service\CompanyService;
-use CompanyRepository;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

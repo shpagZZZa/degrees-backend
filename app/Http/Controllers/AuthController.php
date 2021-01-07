@@ -20,7 +20,21 @@ class AuthController extends Controller
 
     public function getUserAction(Request $request): Response
     {
-        $employee = $this->authService->getUser($request->request->get('accessCode'));
-        return \response(new Employee($employee), 200);
+        if ($employee = $this->authService->getUser((int)$request->request->get('accessCode'))) {
+            return \response(new Employee($employee), 200);
+        }
+        return \response(null, 404);
+    }
+
+    public function loginAction(Request $request): Response
+    {
+        $accessCode = (int)$request->request->get('accessCode');
+        if ($employee = $this->authService->getUser($accessCode)) {
+            return \response([
+                'accessCode' => $accessCode,
+                'isAdmin' => $employee->isAdmin()
+            ], 200);
+        }
+        return \response('Not found!', 404);
     }
 }

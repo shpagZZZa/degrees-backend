@@ -20,7 +20,8 @@ class Company extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'groups' => new GroupCollection($this->groups, GroupExtended::class)
+            'groups' => new GroupCollection($this->groups, GroupExtended::class),
+            'positions' => new PositionCollection($this->positions)
         ];
     }
 }

@@ -28,7 +28,7 @@ class FeedbackController extends Controller
             ->setQuizId($id)
             ->setAnswerId($data['answer']['id'])
             ->setComment($data['comment'] ?? '')
-            ->setEmployeeId($data['author']['id'])
+            ->setEmployeeId($data['authorId'])
         ;
 
         $feedback->save();

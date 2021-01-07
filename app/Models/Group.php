@@ -20,8 +20,14 @@ class Group extends Model
     }
 
     protected $fillable = [
-        'head_id', 'parent_id', 'title'
+        'head_id', 'title', 'company_id'
     ];
+
+    public function setCompanyId(int $id): self
+    {
+        $this->company_id = $id;
+        return $this;
+    }
 
     public function setHeadId(int $headId): self
     {
